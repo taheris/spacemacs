@@ -590,12 +590,12 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
 
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-highlight-delimiters nil
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
@@ -762,13 +762,17 @@ before packages are loaded."
   (spaceline-compile)
 
   ;; global settings
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)
   (setq create-lockfiles nil
         flycheck-indication-mode nil
         markdown-open-command "~/.yadr/bin/marked"
         mouse-drag-copy-region t
         sh-basic-offset 2
         tags-add-tables t)
+
+  ;; prog mode hooks
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-truncate-lines)
 
   ;; lsp
   (setq lsp-prefer-flymake t

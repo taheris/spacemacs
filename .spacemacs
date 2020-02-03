@@ -53,12 +53,14 @@ This function should only modify configuration layer settings."
             helm-no-header t
             helm-position 'right)
      ;ivy
+     templates
 
      ;; +emacs
      better-defaults
      ibuffer
      org
      semantic
+     ;smex
      typography
 
      ;; +email
@@ -84,6 +86,11 @@ This function should only modify configuration layer settings."
      selectric
      xkcd
 
+     ;; +intl:
+     ;chinese
+     ;japanese
+     ;keyboard-layout
+
      ;; +lang
      ;agda
      asciidoc
@@ -91,12 +98,12 @@ This function should only modify configuration layer settings."
      autohotkey
      bibtex
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t
-            )
+       c-c++-default-mode-for-headers 'c++-mode
+       c-c++-enable-clang-support t)
      clojure
      common-lisp
      coq
+     crystal
      csharp
      csv
      d
@@ -122,6 +129,7 @@ This function should only modify configuration layer settings."
      javascript
      jr
      json
+     jsonnet
      kotlin
      latex
      lua
@@ -161,9 +169,23 @@ This function should only modify configuration layer settings."
      ;nlinum
      parinfer
 
+     ;; +music
+     spotify
+
      ;; +os
      nixos
      osx
+
+     ;; +pair-programming
+     ;floobits
+
+     ;; +readers:
+     dash
+     deft
+     elfeed
+     epub
+     pdf
+     speed-reading
 
      ;; +source-control
      git
@@ -232,12 +254,16 @@ This function should only modify configuration layer settings."
      ;xclipboard
      ;ycmd
 
+     ;; +vim:
+     ;evil-commentary
+     ;evil-snipe
+     ;vim-empty-lines
+     ;vinegar
+
      ;; +web-services
      confluence
-     elfeed
      evernote
      search-engine
-     spotify
      twitter
      ;wakatime
      )

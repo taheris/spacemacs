@@ -132,7 +132,7 @@ This function should only modify configuration layer settings."
      rest
      ;restructuredtext
      ruby
-     (rust :variables rust-format-on-save nil)
+     (rust :variables rust-format-on-save t)
      scala
      scheme
      semantic-web
@@ -193,6 +193,7 @@ This function should only modify configuration layer settings."
      pass
      pdf-tools
      puppet
+     lsp
      ranger
      rebox
      restclient
@@ -221,6 +222,7 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
      flycheck-mypy
+     lsp-rust
    )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -605,6 +607,11 @@ before packages are loaded."
 
   ;; set up rust
   (setq-default rust-enable-racer t)
+  (add-hook 'rust-mode-hook #'lsp-rust-enable)
+  (add-hook 'rust-mode-hook #'flycheck-mode)
+  (with-eval-after-load 'lsp-mode
+    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+    (require 'lsp-rust))
 
   ;; use marked 2
   (setq markdown-open-command "/Users/shaun/bin/mark")

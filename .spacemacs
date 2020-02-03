@@ -704,16 +704,6 @@ before packages are loaded."
     "N" 'evil-search-previous
     "q" 'kill-this-buffer)
 
-  ;; company mode colors
-  (require 'color)
-  (let ((bg (face-attribute 'default :background)))
-    (custom-set-faces
-     `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-     `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-     `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-     `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-     `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
-
   ;; keybindings
   (bind-keys :map evil-hybrid-state-map
     ("C-h" . delete-backward-char)
@@ -768,11 +758,6 @@ before packages are loaded."
         mouse-drag-copy-region t) ; copy on select
 
   ;; rust
-  (with-eval-after-load 'lsp-mode
-    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
-    (add-hook 'rust-mode-hook #'lsp-rust-enable)
-    (add-hook 'rust-mode-hook #'flycheck-mode)
-    (require 'lsp-rust))
 
   ;; python
   (require 'flycheck-mypy)

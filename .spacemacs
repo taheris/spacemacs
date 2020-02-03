@@ -445,7 +445,7 @@ It should only modify the values of Spacemacs settings."
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
-   dotspacemacs-large-file-size 1
+   dotspacemacs-large-file-size 10
 
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
@@ -742,8 +742,11 @@ before packages are loaded."
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
-  ;; flycheck
+  ;; set up flycheck
   (setq flycheck-indication-mode nil)
+
+  ;; set up TAGS
+  (setq tags-add-tables nil)
 
   ;; mypy
   (require 'flycheck-mypy)

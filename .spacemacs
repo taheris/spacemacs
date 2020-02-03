@@ -49,7 +49,9 @@ This function should only modify configuration layer settings."
 
      ;; +completion
      auto-completion
-     helm
+     (helm :variables
+            helm-no-header t
+            helm-position 'right)
      ;ivy
 
      ;; +emacs

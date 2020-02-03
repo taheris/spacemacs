@@ -659,8 +659,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   "Library to load while dumping.
 This function is called while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included
-in the dump."
-  )
+in the dump.")
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -702,19 +701,12 @@ before packages are loaded."
   (define-key evil-motion-state-map (kbd "H-k") 'evil-window-up)
   (define-key evil-motion-state-map (kbd "H-l") 'evil-window-right)
 
-  ;; disable .# lockfiles
-  (setq create-lockfiles nil)
-
-  ;; tab width
-  (setq sh-basic-offset 2)
-
   ;; set up dired
   (defun my-dired-up-directory ()
     (interactive)
     (let ((old (current-buffer)))
       (dired-up-directory)
       (kill-buffer old)))
-
   (require 'dired-x)
   (add-hook 'dired-mode-hook 'auto-revert-mode)
   (setq insert-directory-program "/usr/local/bin/gls")
@@ -732,27 +724,6 @@ before packages are loaded."
     "N" 'evil-search-previous
     "q" 'kill-this-buffer)
 
-  ;; set up golang
-  (setq gofmt-command "goimports")
-  (setq go-oracle-command "/Users/shaun/bin/oracle")
-  (setq company-go-show-annotation t)
-
-  ;; set up rust
-  (with-eval-after-load 'lsp-mode
-    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
-    (add-hook 'rust-mode-hook #'lsp-rust-enable)
-    (add-hook 'rust-mode-hook #'flycheck-mode)
-    (require 'lsp-rust))
-
-  ;; use marked 2
-  (setq markdown-open-command "/Users/shaun/bin/mark")
-
-  ;; copy on select
-  (setq mouse-drag-copy-region t)
-
-  ;; hooks for programming modes
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)
-
   ;; company mode colors
   (require 'color)
   (let ((bg (face-attribute 'default :background)))
@@ -763,22 +734,35 @@ before packages are loaded."
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
-  ;; set up flycheck
-  (setq flycheck-indication-mode nil)
+  ;; global settings
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)
+  (setq create-lockfiles nil ; disable .# lockfiles
+        sh-basic-offset 2 ; tab width
+        tags-add-tables t
+        flycheck-indication-mode nil
+        markdown-open-command "/Users/shaun/bin/mark" ; use marked 2
+        mouse-drag-copy-region t) ; copy on select
 
-  ;; set up TAGS
-  (setq tags-add-tables nil)
+  ;; rust
+  (with-eval-after-load 'lsp-mode
+    (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+    (add-hook 'rust-mode-hook #'lsp-rust-enable)
+    (add-hook 'rust-mode-hook #'flycheck-mode)
+    (require 'lsp-rust))
 
   ;; python
   (require 'flycheck-mypy)
   (add-hook 'python-mode-hook 'flycheck-mode)
 
+  ;; go
+  (setq gofmt-command "goimports"
+        go-oracle-command "/Users/shaun/bin/oracle"
+        company-go-show-annotation t)
+
   ;; scala
-  (setq ensime-startup-notification nil)
-  (setq flycheck-scalastylerc "/usr/local/etc/scalastyle_config.xml")
-  ;(flycheck-ensime-setup)
-  (custom-set-faces '(ensime-implicit-highlight ((t (:underline nil)))))
-)
+  (setq ensime-startup-notification nil
+        flycheck-scalastylerc "/usr/local/etc/scalastyle_config.xml")
+  (custom-set-faces '(ensime-implicit-highlight ((t (:underline nil))))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

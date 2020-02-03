@@ -809,6 +809,7 @@ before packages are loaded."
 
   ;; lsp
   (setq lsp-prefer-flymake nil
+        lsp-file-watch-threshold nil
         lsp-ui-doc-enable nil
         lsp-ui-sideline-enable nil)
 

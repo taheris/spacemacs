@@ -50,8 +50,8 @@ This function should only modify configuration layer settings."
      ;; +completion
      auto-completion
      (helm :variables
-            helm-no-header t
-            helm-position 'right)
+            ;helm-position 'right
+            helm-no-header t)
      ;ivy
      templates
 
@@ -100,8 +100,8 @@ This function should only modify configuration layer settings."
      autohotkey
      bibtex
      (c-c++ :variables
-       c-c++-default-mode-for-headers 'c++-mode
-       c-c++-enable-clang-support t)
+             c-c++-default-mode-for-headers 'c++-mode
+             c-c++-enable-clang-support t)
      clojure
      coffeescript
      common-lisp
@@ -119,7 +119,8 @@ This function should only modify configuration layer settings."
      faust
      forth
      fsharp
-     (go :variables go-tab-width 4)
+     (go :variables
+          go-tab-width 4)
      gpu
      graphviz
      groovy
@@ -140,7 +141,7 @@ This function should only modify configuration layer settings."
      major-modes
      markdown
      nim
-     ocaml
+     ;ocaml
      octave
      pact
      perl5
@@ -149,16 +150,18 @@ This function should only modify configuration layer settings."
      plantuml
      protobuf
      purescript
-     (python :variables python-test-runner 'pytest)
+     (python :variables
+              python-test-runner 'pytest)
      racket
      ;restructuredtext
      ruby
-     (rust :variables rust-format-on-save t)
+     (rust :variables
+            rust-backend 'lsp
+            rust-format-on-save t)
      (scala :variables
-       scala-auto-start-ensime t
-       scala-auto-insert-asterisk-in-comments t
-       scala-use-unicode-arrows t
-       scala-enable-eldoc nil)
+             scala-auto-start-ensime t
+             scala-auto-insert-asterisk-in-comments t
+             scala-enable-eldoc nil)
      scheme
      semantic-web
      shell-scripts
@@ -218,7 +221,7 @@ This function should only modify configuration layer settings."
 
      ;; +tags
      cscope
-     gtags
+     ;gtags
 
      ;; +themes
      colors
@@ -287,7 +290,6 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(
      flycheck-mypy
      (flycheck-ensime :location "~/.emacs.d/private/local")
-     (lsp-rust :location "~/.emacs.d/private/local")
    )
 
    ;; A list of packages that cannot be updated.
@@ -433,7 +435,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monaco"
-                               :size 18
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -761,12 +763,17 @@ before packages are loaded."
 
   ;; global settings
   (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)
-  (setq create-lockfiles nil ; disable .# lockfiles
-        sh-basic-offset 2 ; tab width
-        tags-add-tables t
+  (setq create-lockfiles nil
         flycheck-indication-mode nil
         markdown-open-command "~/.yadr/bin/marked"
-        mouse-drag-copy-region t) ; copy on select
+        mouse-drag-copy-region t
+        sh-basic-offset 2
+        tags-add-tables t)
+
+  ;; lsp
+  (setq lsp-prefer-flymake t
+        lsp-ui-doc-enable nil
+        lsp-ui-sideline-enable nil)
 
   ;; rust
   (setq rust-rustfmt-bin "~/.cargo/bin/rustfmt")

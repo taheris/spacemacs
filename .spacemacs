@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; vim: syntax=lisp
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -77,6 +77,8 @@ This function should only modify configuration layer settings."
 
      ;; +frameworks
      django
+     emberjs
+     phoenix
      react
      ruby-on-rails
 
@@ -101,6 +103,7 @@ This function should only modify configuration layer settings."
        c-c++-default-mode-for-headers 'c++-mode
        c-c++-enable-clang-support t)
      clojure
+     coffeescript
      common-lisp
      coq
      crystal
@@ -130,6 +133,7 @@ This function should only modify configuration layer settings."
      jr
      json
      jsonnet
+     julia
      kotlin
      latex
      lua
@@ -166,6 +170,8 @@ This function should only modify configuration layer settings."
      yaml
 
      ;; +misc
+     copy-as-format
+     multiple-cursors
      ;nlinum
      parinfer
 
@@ -236,6 +242,7 @@ This function should only modify configuration layer settings."
      node
      pandoc
      pass
+     prettier
      ;prodigy
      puppet
      ;ranger
@@ -411,11 +418,11 @@ It should only modify the values of Spacemacs settings."
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
-   ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
-   ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
-   ;; user defined themes, refer to the DOCUMENTATION.org for more info on how
-   ;; to create your own spaceline theme. Value can be a symbol or list with\
-   ;; additional properties.
+   ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
+   ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
+   ;; `vanilla' is default Emacs mode-line. `custom' is a user defined themes,
+   ;; refer to the DOCUMENTATION.org for more info on how to create your own
+   ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
    dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
 
@@ -489,9 +496,9 @@ It should only modify the values of Spacemacs settings."
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
 
-   ;; If non-nil, the paste transient-state is enabled. While enabled, pressing
-   ;; `p' several times cycles through the elements in the `kill-ring'.
-   ;; (default nil)
+   ;; If non-nil, the paste transient-state is enabled. While enabled, after you
+   ;; paste something, pressing `C-j' and `C-k' several times cycles through the
+   ;; elements in the `kill-ring'. (default nil)
    dotspacemacs-enable-paste-transient-state nil
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing

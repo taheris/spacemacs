@@ -757,6 +757,21 @@ before packages are loaded."
              ("H-_" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "_")))
              ("H-`" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "`"))))
 
+  (add-hook 'ein:notebook-mode-hook
+            (lambda () (bind-keys :map ein:notebook-mode-map
+                                  ("H-j" . ein:worksheet-goto-next-input)
+                                  ("H-k" . ein:worksheet-goto-prev-input)
+                                  ("H-J" . ein:worksheet-move-cell-down)
+                                  ("H-K" . ein:worksheet-move-cell-up)
+
+                                  ("H-h" . ein:notebook-worksheet-open-prev-or-last)
+                                  ("H-l" . ein:notebook-worksheet-open-next-or-first)
+                                  ("H-H" . ein:notebook-worksheet-move-prev)
+                                  ("H-L" . ein:notebook-worksheet-move-next)
+
+                                  ("H-i" . ein:worksheet-insert-cell-below)
+                                  ("H-I" . ein:worksheet-insert-cell-above))))
+
   ;; powerline
   (setq powerline-default-separator 'alternate)
   (spaceline-compile)

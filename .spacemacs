@@ -230,6 +230,7 @@ This function should only modify configuration layer settings."
      flycheck-mypy
 
      (exec-path-from-shell :location "~/.emacs.d/private/local")
+     (flycheck-ensime :location "~/.emacs.d/private/local")
      (lsp-rust :location "~/.emacs.d/private/local")
    )
 
@@ -726,6 +727,10 @@ before packages are loaded."
   ;; mypy
   (require 'flycheck-mypy)
   (add-hook 'python-mode-hook 'flycheck-mode)
+
+  ;; scala
+  (setq ensime-startup-notification nil)
+  ;(flycheck-ensime-setup)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

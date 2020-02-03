@@ -628,7 +628,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-
   ;; set up load path
   (add-to-list 'load-path "~/.emacs.d/private/")
 
@@ -638,9 +637,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; monokai theme
   (setq monokai-highlight-line "#3C2B42")
-
-  ;; spacemacs-cmake-ide
-  (push "/usr/local/share/emacs/site-lisp/rtags" load-path)
 )
 
 (defun dotspacemacs/user-config ()
@@ -651,16 +647,17 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; set up environment variables
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))
-  (exec-path-from-shell-copy-envs '(
-    "PATH"
-    "GOPATH"
-    "JAVA_HOME"
-    "CARGO_HOME"
-    "RUST_SRC_PATH"
-    "RLS_ROOT"
-    "GTAGSLABEL"
-  ))
+    (require 'exec-path-from-shell)
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-envs '(
+      "PATH"
+      "GOPATH"
+      "JAVA_HOME"
+      "CARGO_HOME"
+      "RUST_SRC_PATH"
+      "RLS_ROOT"
+      "GTAGSLABEL"
+    )))
 
   ;; powerline separator
   (setq powerline-default-separator 'alternate)
@@ -717,11 +714,10 @@ before packages are loaded."
   (setq company-go-show-annotation t)
 
   ;; set up rust
-  (setq-default rust-enable-racer t)
-  (add-hook 'rust-mode-hook #'lsp-rust-enable)
-  (add-hook 'rust-mode-hook #'flycheck-mode)
   (with-eval-after-load 'lsp-mode
     (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+    (add-hook 'rust-mode-hook #'lsp-rust-enable)
+    (add-hook 'rust-mode-hook #'flycheck-mode)
     (require 'lsp-rust))
 
   ;; use marked 2

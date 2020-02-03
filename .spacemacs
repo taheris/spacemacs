@@ -681,26 +681,6 @@ before packages are loaded."
       "GTAGSLABEL"
     )))
 
-  ;; powerline separator
-  (setq powerline-default-separator 'alternate)
-  (spaceline-compile)
-
-  ;; define hybrid state keys
-  (define-key evil-hybrid-state-map (kbd "C-h") 'delete-backward-char)
-  (define-key evil-hybrid-state-map (kbd "M-h") 'evil-delete-backward-word)
-  (define-key evil-hybrid-state-map (kbd "C-?") 'help-command)
-
-  ;; easier window movement
-  (define-key evil-normal-state-map (kbd "H-h") 'evil-window-left)
-  (define-key evil-normal-state-map (kbd "H-j") 'evil-window-down)
-  (define-key evil-normal-state-map (kbd "H-k") 'evil-window-up)
-  (define-key evil-normal-state-map (kbd "H-l") 'evil-window-right)
-
-  (define-key evil-motion-state-map (kbd "H-h") 'evil-window-left)
-  (define-key evil-motion-state-map (kbd "H-j") 'evil-window-down)
-  (define-key evil-motion-state-map (kbd "H-k") 'evil-window-up)
-  (define-key evil-motion-state-map (kbd "H-l") 'evil-window-right)
-
   ;; set up dired
   (defun my-dired-up-directory ()
     (interactive)
@@ -733,6 +713,50 @@ before packages are loaded."
      `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
      `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
      `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
+  ;; keybindings
+  (bind-keys :map evil-hybrid-state-map
+    ("C-h" . delete-backward-char)
+    ("M-h" . evil-delete-backward-word)
+    ("C-?" . help-command))
+
+  (bind-keys :map smartparens-mode-map
+    ("H-k" . sp-up-sexp)
+    ("H-K" . sp-backward-up-sexp)
+    ("H-j" . sp-down-sexp)
+    ("H-J" . sp-backward-down-sexp)
+    ("H-l" . sp-next-sexp)
+    ("H-h" . sp-previous-sexp)
+    ("H-L" . sp-forward-symbol)
+    ("H-H" . sp-backward-symbol)
+
+    ("H-a" . sp-beginning-of-sexp)
+    ("H-e" . sp-end-of-sexp)
+    ("H-f" . sp-forward-sexp)
+    ("H-b" . sp-backward-sexp)
+    ("H-x" . sp-forward-slurp-sexp)
+    ("H-X" . sp-backward-slurp-sexp)
+    ("H-p" . sp-forward-barf-sexp)
+    ("H-P" . sp-backward-barf-sexp)
+    ("H-y" . sp-copy-sexp)
+    ("H-d" . sp-kill-sexp)
+    ("H-D" . sp-backward-kill-sexp)
+    ("H-t" . sp-transpose-sexp)
+    ("H-T" . sp-transpose-hybrid-sexp)
+    ("H-]" . sp-unwrap-sexp)
+    ("H-[" . sp-rewrap-sexp)
+
+    ("H-(" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "(")))
+    ("H-[" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "[")))
+    ("H-{" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "{")))
+    ("H-'" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "'")))
+    ("H-\"". (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "\"")))
+    ("H-_" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "_")))
+    ("H-`" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "`"))))
+
+  ;; powerline
+  (setq powerline-default-separator 'alternate)
+  (spaceline-compile)
 
   ;; global settings
   (add-hook 'prog-mode-hook 'spacemacs/toggle-fill-column-indicator)

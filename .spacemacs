@@ -57,6 +57,7 @@ This function should only modify configuration layer settings."
      ;; +email
      gnus
      mu4e
+     notmuch
 
      ;; +filetree
      neotree
@@ -97,12 +98,14 @@ This function should only modify configuration layer settings."
      emacs-lisp
      erlang
      ess
+     extra-langs
      faust
      forth
      fsharp
      (go :variables go-tab-width 4)
      gpu
      graphviz
+     groovy
      haskell
      html
      idris
@@ -110,6 +113,7 @@ This function should only modify configuration layer settings."
      java
      javascript
      jr
+     kotlin
      latex
      lua
      major-modes
@@ -125,6 +129,7 @@ This function should only modify configuration layer settings."
      purescript
      (python :variables python-test-runner 'pytest)
      racket
+     rest
      ;restructuredtext
      ruby
      (rust :variables rust-format-on-save nil)

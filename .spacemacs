@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      ;; +completion
      auto-completion
      helm
+     ;ivy
 
      ;; +emacs
      better-defaults
@@ -102,6 +103,8 @@ This function should only modify configuration layer settings."
      emacs-lisp
      erlang
      ess
+     extra-langs
+     factor
      faust
      forth
      fsharp
@@ -132,6 +135,7 @@ This function should only modify configuration layer settings."
      purescript
      (python :variables python-test-runner 'pytest)
      racket
+     rest
      ;restructuredtext
      ruby
      (rust :variables rust-format-on-save t)
@@ -163,6 +167,7 @@ This function should only modify configuration layer settings."
 
      ;; +spacemacs
      spacemacs-completion
+     spacemacs-defaults
      spacemacs-editing
      spacemacs-editing-visual
      spacemacs-evil
@@ -172,6 +177,7 @@ This function should only modify configuration layer settings."
      spacemacs-modeline
      spacemacs-navigation
      spacemacs-org
+     spacemacs-project
      spacemacs-purpose
      spacemacs-visual
 
@@ -181,42 +187,56 @@ This function should only modify configuration layer settings."
 
      ;; +themes
      colors
+     ;themes-megapack
+     ;theming
 
      ;; +tools
      ansible
+     ;bm
+     ;cfengine
+     ;chrome
+     cmake
      command-log
      dash
      deft
      docker
+     ;fasd
+     ;finance
+     ;geolocation
      imenu-list
+     lsp
      nginx
      node
      pandoc
      pass
      pdf-tools
+     ;prodigy
      puppet
-     lsp
-     ranger
+     ;ranger
      rebox
      restclient
      salt
      shell
+     ;speed-reading
+     ;sphinx
      systemd
      terraform
      tmux
      transmission
      vagrant
+     ;ycmd
 
      ;; +web-services
      confluence
+     elfeed
      evernote
      search-engine
      spotify
      twitter
+     ;wakatime
 
      ;; private
      no-dots
-     ;spacemacs-cmake-ide
      )
 
    ;; List of additional packages that will be installed without being
@@ -620,18 +640,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; spacemacs-cmake-ide
   (push "/usr/local/share/emacs/site-lisp/rtags" load-path)
-
-  ;; set up environment variables
-  ;(exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env '(
-    "PATH"
-    "GOPATH"
-    "JAVA_HOME"
-    "CARGO_HOME"
-    "RUST_SRC_PATH"
-    "RLS_ROOT"
-    "GTAGSLABEL"
-  ))
 )
 
 (defun dotspacemacs/user-config ()
@@ -640,6 +648,19 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; set up environment variables
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+  (exec-path-from-shell-copy-envs '(
+    "PATH"
+    "GOPATH"
+    "JAVA_HOME"
+    "CARGO_HOME"
+    "RUST_SRC_PATH"
+    "RLS_ROOT"
+    "GTAGSLABEL"
+  ))
+
   ;; powerline separator
   (setq powerline-default-separator 'alternate)
   (spaceline-compile)

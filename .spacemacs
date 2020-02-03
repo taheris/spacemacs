@@ -715,7 +715,8 @@ before packages are loaded."
 
   (require 'dired-x)
   (add-hook 'dired-mode-hook 'auto-revert-mode)
-  (setq dired-listing-switches "-lGh")
+  (setq insert-directory-program "/usr/local/bin/gls")
+  (setq dired-listing-switches "-lGh --group-directories-first")
   (evil-define-key 'normal dired-mode-map
     "h" 'my-dired-up-directory
     "l" 'dired-find-alternate-file

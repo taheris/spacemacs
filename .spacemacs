@@ -419,7 +419,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(doom-dracula
                          spacemacs-dark
                          spacemacs-light)
 
@@ -430,7 +430,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator alternate :separator-scale 1.2)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -442,6 +442,7 @@ It should only modify the values of Spacemacs settings."
                                :size 16
                                :weight normal
                                :width normal)
+
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
@@ -679,9 +680,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; define custom file
   (setq custom-file "~/.emacs.d/.custom")
   (load custom-file)
-
-  ;; monokai theme
-  (setq monokai-highlight-line "#3C2B42")
   )
 
 (defun dotspacemacs/user-load ()
@@ -697,6 +695,17 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  ;; set up doom modeline
+  (setq auto-revert-check-vc-info t ; performance issue?
+        doom-modeline-height 20
+        doom-modeline-buffer-file-name-style 'truncate-upto-root
+        doom-modeline-checker-simple-format nil
+        doom-modeline-vcs-max-length 20)
+  (doom-modeline-def-modeline 'main
+    '(bar window-number matches modals buffer-info remote-host selection-info checker)
+    '(misc-info input-method debug major-mode process vcs lsp buffer-position))
+
   ;; set up dired
   (defun my-dired-up-directory ()
     (interactive)
@@ -777,7 +786,6 @@ before packages are loaded."
 
   ;; global settings
   (setq create-lockfiles nil
-        flycheck-indication-mode nil
         markdown-open-command "~/.yadr/bin/marked"
         mouse-drag-copy-region t
         sh-basic-offset 2

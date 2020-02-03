@@ -102,3 +102,5 @@ cscope.po.out
 .custom
 .irony
 .lsp-session-*
+async-bytecomp.log
+transient/

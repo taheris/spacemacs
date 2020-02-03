@@ -31,254 +31,254 @@ This function should only modify configuration layer settings."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '(
-     "~/.emacs.d/private"
-   )
+                                           "~/.emacs.d/private"
+                                           )
 
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers '(
-     ;; +chat
-     erc
-     jabber
-     rcirc
-     slack
+                                       ;; +chat
+                                       erc
+                                       jabber
+                                       rcirc
+                                       slack
 
-     ;; +checkers
-     spell-checking
-     (syntax-checking :variables syntax-checking-enable-tooltips nil)
+                                       ;; +checkers
+                                       spell-checking
+                                       (syntax-checking :variables syntax-checking-enable-tooltips nil)
 
-     ;; +completion
-     auto-completion
-     (helm :variables
-            ;helm-position 'right
-            helm-no-header t)
-     ;ivy
-     templates
+                                       ;; +completion
+                                       auto-completion
+                                       (helm :variables
+                                        ;helm-position 'right
+                                             helm-no-header t)
+                                        ;ivy
+                                       templates
 
-     ;; +emacs
-     better-defaults
-     ibuffer
-     org
-     semantic
-     ;smex
-     typography
+                                       ;; +emacs
+                                       better-defaults
+                                       ibuffer
+                                       org
+                                       semantic
+                                        ;smex
+                                       typography
 
-     ;; +email
-     gnus
-     mu4e
-     notmuch
+                                       ;; +email
+                                       gnus
+                                       mu4e
+                                       notmuch
 
-     ;; +filetree
-     neotree
-     treemacs
+                                       ;; +filetree
+                                       neotree
+                                       treemacs
 
-     ;; +fonts
-     unicode-fonts
+                                       ;; +fonts
+                                       unicode-fonts
 
-     ;; +frameworks
-     django
-     emberjs
-     phoenix
-     react
-     ruby-on-rails
+                                       ;; +frameworks
+                                       django
+                                       emberjs
+                                       phoenix
+                                       react
+                                       ruby-on-rails
 
-     ;; +fun
-     emoji
-     games
-     selectric
-     xkcd
+                                       ;; +fun
+                                       emoji
+                                       games
+                                       selectric
+                                       xkcd
 
-     ;; +intl:
-     ;chinese
-     ;japanese
-     ;keyboard-layout
+                                       ;; +intl:
+                                        ;chinese
+                                        ;japanese
+                                        ;keyboard-layout
 
-     ;; +lang
-     ;agda
-     asciidoc
-     asm
-     autohotkey
-     bibtex
-     (c-c++ :variables
-             c-c++-default-mode-for-headers 'c++-mode
-             c-c++-enable-clang-support t)
-     clojure
-     coffeescript
-     common-lisp
-     coq
-     crystal
-     csharp
-     csv
-     d
-     elixir
-     elm
-     emacs-lisp
-     erlang
-     ess
-     factor
-     faust
-     forth
-     fsharp
-     (go :variables
-          go-tab-width 4)
-     gpu
-     graphviz
-     groovy
-     haskell
-     html
-     hy
-     idris
-     ipython-notebook
-     java
-     javascript
-     jr
-     json
-     jsonnet
-     julia
-     kotlin
-     latex
-     lua
-     major-modes
-     markdown
-     nim
-     ;ocaml
-     octave
-     pact
-     perl5
-     perl6
-     php
-     plantuml
-     protobuf
-     purescript
-     (python :variables
-              python-test-runner 'pytest)
-     racket
-     ;restructuredtext
-     ruby
-     (rust :variables
-            rust-backend 'lsp
-            rust-format-on-save t)
-     (scala :variables
-             scala-auto-start-ensime t
-             scala-auto-insert-asterisk-in-comments t
-             scala-enable-eldoc nil)
-     scheme
-     semantic-web
-     shell-scripts
-     sml
-     sql
-     swift
-     typescript
-     vimscript
-     windows-scripts
-     yaml
+                                       ;; +lang
+                                        ;agda
+                                       asciidoc
+                                       asm
+                                       autohotkey
+                                       bibtex
+                                       (c-c++ :variables
+                                              c-c++-default-mode-for-headers 'c++-mode
+                                              c-c++-enable-clang-support t)
+                                       clojure
+                                       coffeescript
+                                       common-lisp
+                                       coq
+                                       crystal
+                                       csharp
+                                       csv
+                                       d
+                                       elixir
+                                       elm
+                                       emacs-lisp
+                                       erlang
+                                       ess
+                                       factor
+                                       faust
+                                       forth
+                                       fsharp
+                                       (go :variables
+                                           go-tab-width 4)
+                                       gpu
+                                       graphviz
+                                       groovy
+                                       haskell
+                                       html
+                                       hy
+                                       idris
+                                       ipython-notebook
+                                       java
+                                       javascript
+                                       jr
+                                       json
+                                       jsonnet
+                                       julia
+                                       kotlin
+                                       latex
+                                       lua
+                                       major-modes
+                                       markdown
+                                       nim
+                                        ;ocaml
+                                       octave
+                                       pact
+                                       perl5
+                                       perl6
+                                       php
+                                       plantuml
+                                       protobuf
+                                       purescript
+                                       (python :variables
+                                               python-test-runner 'pytest)
+                                       racket
+                                        ;restructuredtext
+                                       ruby
+                                       (rust :variables
+                                             rust-backend 'lsp
+                                             rust-format-on-save t)
+                                       (scala :variables
+                                              scala-auto-start-ensime t
+                                              scala-auto-insert-asterisk-in-comments t
+                                              scala-enable-eldoc nil)
+                                       scheme
+                                       semantic-web
+                                       shell-scripts
+                                       sml
+                                       sql
+                                       swift
+                                       typescript
+                                       vimscript
+                                       windows-scripts
+                                       yaml
 
-     ;; +misc
-     copy-as-format
-     multiple-cursors
-     ;nlinum
-     parinfer
+                                       ;; +misc
+                                       copy-as-format
+                                       multiple-cursors
+                                        ;nlinum
+                                       parinfer
 
-     ;; +music
-     spotify
+                                       ;; +music
+                                       spotify
 
-     ;; +os
-     nixos
-     osx
+                                       ;; +os
+                                       nixos
+                                       osx
 
-     ;; +pair-programming
-     ;floobits
+                                       ;; +pair-programming
+                                        ;floobits
 
-     ;; +readers:
-     dash
-     deft
-     elfeed
-     epub
-     pdf
-     speed-reading
+                                       ;; +readers:
+                                       dash
+                                       deft
+                                       elfeed
+                                       epub
+                                       pdf
+                                       speed-reading
 
-     ;; +source-control
-     git
-     github
-     perforce
-     version-control
+                                       ;; +source-control
+                                       git
+                                       github
+                                       perforce
+                                       version-control
 
-     ;; +spacemacs
-     spacemacs-completion
-     spacemacs-defaults
-     spacemacs-editing
-     spacemacs-editing-visual
-     spacemacs-evil
-     spacemacs-language
-     spacemacs-layouts
-     spacemacs-misc
-     spacemacs-modeline
-     spacemacs-navigation
-     spacemacs-org
-     spacemacs-project
-     spacemacs-purpose
-     spacemacs-visual
+                                       ;; +spacemacs
+                                       spacemacs-completion
+                                       spacemacs-defaults
+                                       spacemacs-editing
+                                       spacemacs-editing-visual
+                                       spacemacs-evil
+                                       spacemacs-language
+                                       spacemacs-layouts
+                                       spacemacs-misc
+                                       spacemacs-modeline
+                                       spacemacs-navigation
+                                       spacemacs-org
+                                       spacemacs-project
+                                       spacemacs-purpose
+                                       spacemacs-visual
 
-     ;; +tags
-     cscope
-     ;gtags
+                                       ;; +tags
+                                       cscope
+                                        ;gtags
 
-     ;; +themes
-     colors
-     ;themes-megapack
-     ;theming
+                                       ;; +themes
+                                       colors
+                                        ;themes-megapack
+                                        ;theming
 
-     ;; +tools
-     ansible
-     ;bm
-     ;cfengine
-     ;chrome
-     cmake
-     command-log
-     dap
-     debug
-     docker
-     ;fasd
-     ;finance
-     ;geolocation
-     imenu-list
-     lsp
-     nginx
-     node
-     pandoc
-     pass
-     prettier
-     ;prodigy
-     puppet
-     ;ranger
-     rebox
-     restclient
-     salt
-     shell
-     ;sphinx
-     systemd
-     ;tern
-     terraform
-     tmux
-     transmission
-     vagrant
-     web-beautify
-     ;xclipboard
-     ;ycmd
+                                       ;; +tools
+                                       ansible
+                                        ;bm
+                                        ;cfengine
+                                        ;chrome
+                                       cmake
+                                       command-log
+                                       dap
+                                       debug
+                                       docker
+                                        ;fasd
+                                        ;finance
+                                        ;geolocation
+                                       imenu-list
+                                       lsp
+                                       nginx
+                                       node
+                                       pandoc
+                                       pass
+                                       prettier
+                                        ;prodigy
+                                       puppet
+                                        ;ranger
+                                       rebox
+                                       restclient
+                                       salt
+                                       shell
+                                        ;sphinx
+                                       systemd
+                                        ;tern
+                                       terraform
+                                       tmux
+                                       transmission
+                                       vagrant
+                                       web-beautify
+                                        ;xclipboard
+                                        ;ycmd
 
-     ;; +vim:
-     ;evil-commentary
-     ;evil-snipe
-     ;vim-empty-lines
-     ;vinegar
+                                       ;; +vim:
+                                        ;evil-commentary
+                                        ;evil-snipe
+                                        ;vim-empty-lines
+                                        ;vinegar
 
-     ;; +web-services
-     confluence
-     evernote
-     search-engine
-     twitter
-     ;wakatime
-     )
+                                       ;; +web-services
+                                       confluence
+                                       evernote
+                                       search-engine
+                                       twitter
+                                        ;wakatime
+                                       )
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -288,9 +288,9 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
-     flycheck-mypy
-     (flycheck-ensime :location "~/.emacs.d/private/local")
-   )
+                                      flycheck-mypy
+                                      (flycheck-ensime :location "~/.emacs.d/private/local")
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -679,7 +679,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; monokai theme
   (setq monokai-highlight-line "#3C2B42")
-)
+  )
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
@@ -719,43 +719,43 @@ before packages are loaded."
 
   ;; keybindings
   (bind-keys :map evil-hybrid-state-map
-    ("C-h" . delete-backward-char)
-    ("M-h" . evil-delete-backward-word)
-    ("C-?" . help-command))
+             ("C-h" . delete-backward-char)
+             ("M-h" . evil-delete-backward-word)
+             ("C-?" . help-command))
 
   (bind-keys :map smartparens-mode-map
-    ("H-k" . sp-up-sexp)
-    ("H-K" . sp-backward-up-sexp)
-    ("H-j" . sp-down-sexp)
-    ("H-J" . sp-backward-down-sexp)
-    ("H-l" . sp-next-sexp)
-    ("H-h" . sp-previous-sexp)
-    ("H-L" . sp-forward-symbol)
-    ("H-H" . sp-backward-symbol)
+             ("H-k" . sp-up-sexp)
+             ("H-K" . sp-backward-up-sexp)
+             ("H-j" . sp-down-sexp)
+             ("H-J" . sp-backward-down-sexp)
+             ("H-l" . sp-next-sexp)
+             ("H-h" . sp-previous-sexp)
+             ("H-L" . sp-forward-symbol)
+             ("H-H" . sp-backward-symbol)
 
-    ("H-a" . sp-beginning-of-sexp)
-    ("H-e" . sp-end-of-sexp)
-    ("H-f" . sp-forward-sexp)
-    ("H-b" . sp-backward-sexp)
-    ("H-x" . sp-forward-slurp-sexp)
-    ("H-X" . sp-backward-slurp-sexp)
-    ("H-p" . sp-forward-barf-sexp)
-    ("H-P" . sp-backward-barf-sexp)
-    ("H-y" . sp-copy-sexp)
-    ("H-d" . sp-kill-sexp)
-    ("H-D" . sp-backward-kill-sexp)
-    ("H-t" . sp-transpose-sexp)
-    ("H-T" . sp-transpose-hybrid-sexp)
-    ("H-]" . sp-unwrap-sexp)
-    ("H-[" . sp-rewrap-sexp)
+             ("H-a" . sp-beginning-of-sexp)
+             ("H-e" . sp-end-of-sexp)
+             ("H-f" . sp-forward-sexp)
+             ("H-b" . sp-backward-sexp)
+             ("H-x" . sp-forward-slurp-sexp)
+             ("H-X" . sp-backward-slurp-sexp)
+             ("H-p" . sp-forward-barf-sexp)
+             ("H-P" . sp-backward-barf-sexp)
+             ("H-y" . sp-copy-sexp)
+             ("H-d" . sp-kill-sexp)
+             ("H-D" . sp-backward-kill-sexp)
+             ("H-t" . sp-transpose-sexp)
+             ("H-T" . sp-transpose-hybrid-sexp)
+             ("H-]" . sp-unwrap-sexp)
+             ("H-[" . sp-rewrap-sexp)
 
-    ("H-(" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "(")))
-    ("H-[" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "[")))
-    ("H-{" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "{")))
-    ("H-'" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "'")))
-    ("H-\"". (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "\"")))
-    ("H-_" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "_")))
-    ("H-`" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "`"))))
+             ("H-(" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "(")))
+             ("H-[" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "[")))
+             ("H-{" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "{")))
+             ("H-'" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "'")))
+             ("H-\"". (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "\"")))
+             ("H-_" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "_")))
+             ("H-`" . (lambda (&optional arg) (interactive "p") (sp-wrap-with-pair "`"))))
 
   ;; powerline
   (setq powerline-default-separator 'alternate)

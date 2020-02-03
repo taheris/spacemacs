@@ -110,6 +110,7 @@ This function should only modify configuration layer settings."
                                        csharp
                                        csv
                                        d
+                                       dhall
                                        elixir
                                        elm
                                        emacs-lisp
@@ -148,6 +149,7 @@ This function should only modify configuration layer settings."
                                        perl6
                                        php
                                        plantuml
+                                       prolog
                                        protobuf
                                        purescript
                                        (python :variables
@@ -172,9 +174,11 @@ This function should only modify configuration layer settings."
                                        vimscript
                                        windows-scripts
                                        yaml
+                                       yang
 
                                        ;; +misc
                                        copy-as-format
+                                       ietf
                                        multiple-cursors
                                         ;nlinum
                                        parinfer
@@ -232,7 +236,7 @@ This function should only modify configuration layer settings."
                                        ansible
                                         ;bm
                                         ;cfengine
-                                        ;chrome
+                                       chrome
                                        cmake
                                        command-log
                                        dap
@@ -426,7 +430,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator alternate :separator-scale 1.2)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -437,8 +441,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-default-font '("Monaco"
                                :size 16
                                :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                               :width normal)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
 
@@ -771,10 +774,6 @@ before packages are loaded."
 
                                   ("H-i" . ein:worksheet-insert-cell-below)
                                   ("H-I" . ein:worksheet-insert-cell-above))))
-
-  ;; powerline
-  (setq powerline-default-separator 'alternate)
-  (spaceline-compile)
 
   ;; global settings
   (setq create-lockfiles nil

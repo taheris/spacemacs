@@ -103,7 +103,6 @@ This function should only modify configuration layer settings."
      emacs-lisp
      erlang
      ess
-     extra-langs
      factor
      faust
      forth
@@ -114,11 +113,13 @@ This function should only modify configuration layer settings."
      groovy
      haskell
      html
+     hy
      idris
      ipython-notebook
      java
      javascript
      jr
+     json
      kotlin
      latex
      lua
@@ -135,7 +136,6 @@ This function should only modify configuration layer settings."
      purescript
      (python :variables python-test-runner 'pytest)
      racket
-     rest
      ;restructuredtext
      ruby
      (rust :variables rust-format-on-save t)

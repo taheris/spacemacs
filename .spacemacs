@@ -758,6 +758,7 @@ before packages are loaded."
         mouse-drag-copy-region t) ; copy on select
 
   ;; rust
+  (setq rust-rustfmt-bin "~/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/rustfmt")
 
   ;; python
   (require 'flycheck-mypy)

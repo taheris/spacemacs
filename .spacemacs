@@ -142,6 +142,7 @@ This function should only modify configuration layer settings."
      nim
      ocaml
      octave
+     pact
      perl5
      perl6
      php
@@ -231,6 +232,7 @@ This function should only modify configuration layer settings."
      ;chrome
      cmake
      command-log
+     dap
      debug
      docker
      ;fasd
@@ -284,8 +286,6 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
      flycheck-mypy
-
-     (exec-path-from-shell :location "~/.emacs.d/private/local")
      (flycheck-ensime :location "~/.emacs.d/private/local")
      (lsp-rust :location "~/.emacs.d/private/local")
    )
@@ -765,11 +765,11 @@ before packages are loaded."
         sh-basic-offset 2 ; tab width
         tags-add-tables t
         flycheck-indication-mode nil
-        markdown-open-command "/Users/shaun/bin/mark" ; use marked 2
+        markdown-open-command "~/.yadr/bin/marked"
         mouse-drag-copy-region t) ; copy on select
 
   ;; rust
-  (setq rust-rustfmt-bin "~/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/rustfmt")
+  (setq rust-rustfmt-bin "~/.cargo/bin/rustfmt")
 
   ;; python
   (require 'flycheck-mypy)

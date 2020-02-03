@@ -748,13 +748,14 @@ before packages are loaded."
   ;; set up TAGS
   (setq tags-add-tables nil)
 
-  ;; mypy
+  ;; python
   (require 'flycheck-mypy)
   (add-hook 'python-mode-hook 'flycheck-mode)
 
   ;; scala
   (setq ensime-startup-notification nil)
   ;(flycheck-ensime-setup)
+  (custom-set-faces '(ensime-implicit-highlight ((t (:underline nil)))))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

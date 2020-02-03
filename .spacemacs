@@ -139,7 +139,11 @@ This function should only modify configuration layer settings."
      ;restructuredtext
      ruby
      (rust :variables rust-format-on-save t)
-     scala
+     (scala :variables
+       scala-auto-start-ensime t
+       scala-auto-insert-asterisk-in-comments t
+       scala-use-unicode-arrows t
+       scala-enable-eldoc nil)
      scheme
      semantic-web
      shell-scripts
@@ -197,8 +201,7 @@ This function should only modify configuration layer settings."
      ;chrome
      cmake
      command-log
-     dash
-     deft
+     debug
      docker
      ;fasd
      ;finance
@@ -209,7 +212,6 @@ This function should only modify configuration layer settings."
      node
      pandoc
      pass
-     pdf-tools
      ;prodigy
      puppet
      ;ranger
@@ -217,13 +219,15 @@ This function should only modify configuration layer settings."
      restclient
      salt
      shell
-     ;speed-reading
      ;sphinx
      systemd
+     ;tern
      terraform
      tmux
      transmission
      vagrant
+     web-beautify
+     ;xclipboard
      ;ycmd
 
      ;; +web-services
@@ -234,9 +238,6 @@ This function should only modify configuration layer settings."
      spotify
      twitter
      ;wakatime
-
-     ;; private
-     no-dots
      )
 
    ;; List of additional packages that will be installed without being
@@ -754,6 +755,7 @@ before packages are loaded."
 
   ;; scala
   (setq ensime-startup-notification nil)
+  (setq flycheck-scalastylerc "/usr/local/etc/scalastyle_config.xml")
   ;(flycheck-ensime-setup)
   (custom-set-faces '(ensime-implicit-highlight ((t (:underline nil)))))
 )

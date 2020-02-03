@@ -98,7 +98,6 @@ This function should only modify configuration layer settings."
      emacs-lisp
      erlang
      ess
-     extra-langs
      faust
      forth
      fsharp
@@ -129,7 +128,6 @@ This function should only modify configuration layer settings."
      purescript
      (python :variables python-test-runner 'pytest)
      racket
-     rest
      ;restructuredtext
      ruby
      (rust :variables rust-format-on-save t)

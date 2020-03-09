@@ -156,6 +156,7 @@ This function should only modify configuration layer settings."
                                        ruby
                                        (rust :variables
                                              rust-backend 'lsp
+                                             lsp-rust-server 'rust-analyzer
                                              rust-format-on-save t)
                                        (scala :variables
                                               scala-auto-start-ensime t
@@ -812,6 +813,9 @@ before packages are loaded."
         lsp-file-watch-threshold nil
         lsp-ui-doc-enable nil
         lsp-ui-sideline-enable nil)
+
+  ;; markdown
+  (add-hook 'markdown-mode-hook 'auto-fill-mode)
 
   ;; python
   (require 'flycheck-mypy)
